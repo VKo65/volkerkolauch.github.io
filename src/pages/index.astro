@@ -1,0 +1,133 @@
+---
+const name = "Volker Kolauch";
+const role = "AI & Process Engineer";
+const tagline = "Bringt Ordnung in komplexe Prozesse – mit KI, Pragmatismus und Herz.";
+const location = "Aachen / NRW · Remote";
+const email = "volker@kolauch.de";
+const phone = "+49 178 1844175";
+const linkedin = "https://www.linkedin.com/in/volker-kolauch";
+const github = "https://github.com/VKo65";
+const cvUrl = "/cv.pdf"; // optional: eine PDF später in /public/cv.pdf legen
+
+const skills = [
+  "Prompt Engineering",
+  "LLM/RAG (Grundlagen)",
+  "Python (Basics)",
+  "CI/CD · DevOps (Grundverständnis)",
+  "Prozess- & Qualitätsmanagement",
+  "Wissensmodellierung (Graph-Denke)",
+  "Stakeholder-Kommunikation",
+];
+
+const projects = [
+  {
+    title: "Seelenfreund – Demenzassistenz (Prototyp)",
+    desc: "KI-gestützter Begleiter: sichere Audio-Pipeline, robuste Prompt-Logik, testbare Dialogflows.",
+    link: "#"
+  },
+  {
+    title: "Hackathon-Siegerteam",
+    desc: "Wikipedia-Game: Retrieval + schnelle Iterationen → spielbarer Prototyp in 48h.",
+    link: "#"
+  },
+  {
+    title: "Customer Quality Engineer",
+    desc: "Use-Cases mit Kunden geschärft, Anforderungen ↔ Umsetzung gemappt, Qualität messbar gemacht.",
+    link: "#"
+  },
+];
+---
+
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{name} – {role}</title>
+    <meta name="description" content={tagline} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      :root { --bg:#0b0f14; --fg:#e8eef5; --muted:#aab7c5; --card:#121822; --acc:#8ec5ff; }
+      * { box-sizing: border-box; }
+      body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color:var(--fg); background: radial-gradient(1200px 600px at 20% -10%, #142033, transparent), var(--bg);}
+      .wrap { max-width: 950px; margin: 0 auto; padding: 32px 20px 80px; }
+      .hero { display:grid; gap:14px; padding:32px; background:var(--card); border:1px solid #1e2633; border-radius:18px; box-shadow: 0 10px 30px rgba(0,0,0,.25);}
+      .name { font-size: clamp(28px, 4vw, 40px); margin:0;}
+      .role { margin:0; color:var(--muted); font-size: clamp(16px, 2.4vw, 20px);}
+      .tag { margin:8px 0 0; color:#d7e6ff; line-height:1.45 }
+      .meta { display:flex; gap:16px; flex-wrap:wrap; margin-top:10px; color:var(--muted); }
+      .btns { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;}
+      .btn { padding:10px 14px; border-radius:12px; border:1px solid #243041; background:#121b29; color:#e8eef5; text-decoration:none; }
+      .btn.primary { background:linear-gradient(90deg, #2a6be7, #5aa9ff); color:#fff; border:none; }
+      h2 { margin:32px 0 12px; font-size:22px }
+      .grid { display:grid; gap:14px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+      .card { padding:18px; background:var(--card); border:1px solid #1e2633; border-radius:14px; }
+      .small { color:var(--muted); font-size:14px; }
+      ul.clean { margin:10px 0 0; padding-left:18px; }
+      .footer { margin-top:28px; color:var(--muted); font-size:14px; text-align:center; }
+      a { color: var(--acc); }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <section class="hero">
+        <h1 class="name">{name}</h1>
+        <h2 class="role">{role}</h2>
+        <p class="tag">{tagline}</p>
+        <div class="meta">
+          <span>📍 {location}</span>
+          <span>✉️ <a href={"mailto:"+email}>{email}</a></span>
+          <span>📞 {phone}</span>
+        </div>
+        <div class="btns">
+          {cvUrl && <a class="btn primary" href={cvUrl} target="_blank" rel="noreferrer">CV herunterladen</a>}
+          {linkedin && <a class="btn" href={linkedin} target="_blank">LinkedIn</a>}
+          {github && <a class="btn" href={github} target="_blank">GitHub</a>}
+        </div>
+      </section>
+
+      <section>
+        <h2>Kurzprofil</h2>
+        <div class="card">
+          <p>
+            Diplom-Ingenieur (FH) & erfahrener Prozeß-Profi, heute fokussiert auf
+            KI-gestützte Prozessverbesserung. Frisch geschult in Python-Basics, CI/CD-Verständnis
+            und modernen Prompt-Techniken. Ich übersetze reale Anforderungen in einfache, stabile
+            Prototypen – und mache Wirkung messbar.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Stärken & Skills</h2>
+        <div class="card">
+          <ul class="clean">
+            {skills.map(s => <li>{s}</li>)}
+          </ul>
+          <p class="small">Aktuell vertieft: RAG-Muster, Adaptive/Corrective RAG, strukturierte Argumentation (Self-Consistency, CoT).</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Ausgewählte Projekte</h2>
+        <div class="grid">
+          {projects.map(p => (
+            <article class="card">
+              <h3 style="margin:0 0 6px">{p.title}</h3>
+              <p class="small" style="margin:0 0 10px">{p.desc}</p>
+              {p.link && <a href={p.link} target="_blank">Mehr</a>}
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <h2>Kontakt aufnehmen</h2>
+        <div class="card">
+          <p>Ich freue mich über eine kurze Nachricht per E-Mail oder einen Call.</p>
+          <p class="small">Verfügbarkeit: 40 Std./Woche · Remote · Einstieg via 2-monatigem Pflichtpraktikum möglich.</p>
+        </div>
+      </section>
+
+      <p class="footer">© {new Date().getFullYear()} {name}</p>
+    </div>
+  </body>
+</html>
