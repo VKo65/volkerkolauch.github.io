@@ -1,9 +1,7 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
-import github from "@astrojs/github/actions";
+import github from '@astrojs/github/actions';
 
-// https://astro.build/config
 export default defineConfig({
-  site: 'https://VKo65.github.io',
+  site: 'https://vko65.github.io', // wichtig: dein Nutzername = VKo65 → Domain = vko65.github.io
   integrations: [github()],
 });
